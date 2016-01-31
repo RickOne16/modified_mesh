@@ -110,34 +110,42 @@ class Mesh(SimpleTopology):
         int_links = []
         for row in xrange(num_rows):
             for col in xrange(num_columns):
-                if (col + 1 < num_columns):
-                    east_id = col + (row * num_columns)
-                    west_id = (col + 1) + (row * num_columns)
-
                 if (link_count == 3):
                     link_count = 0
                     east_id = None
-                int_links.append(IntLink(link_id=link_count,
+                    west_id = (col + 1) + (row * num_columns)
+                    int_links.append(IntLink(link_id=link_count,
+                                            node_a=routers[east_id],
+                                            node_b=routers[west_id],
+                                            weight=1))
+                if (col + 1 < num_columns):
+                    east_id = col + (row * num_columns)
+                    west_id = (col + 1) + (row * num_columns)
+                    int_links.append(IntLink(link_id=link_count,
                                             node_a=routers[east_id],
                                             node_b=routers[west_id],
                                             weight=1))
             link_count += 1
-            break
+                break
 
         for col in xrange(num_columns):
             for row in xrange(num_rows):
-                if (row + 1 < num_rows):
-                    north_id = col + (row * num_columns)
-                    south_id = col + ((row + 1) * num_columns)
-
                 if (link_count == 3):
                     link_count = 0
                     south_id = None
-                int_links.append(IntLink(link_id=link_count,
-                                            node_a=routers[north_id],
-                                            node_b=routers[south_id],
+                    north_id = col + (row * num_columns)
+                    int_links.append(IntLink(link_id=link_count,
+                                            node_a=routers[south_id],
+                                            node_b=routers[north_id],
+                                            weight=1))
+                if (col + 1 < num_columns):
+                    north_id = col + (row * num_columns)
+                    south_id = col + ((row + 1) * num_columns)
+                    int_links.append(IntLink(link_id=link_count,
+                                            node_a=routers[south_id],
+                                            node_b=routers[north_id],
                                             weight=1))
             link_count += 1
-            break
-
+                break
+        
         network.int_links = int_links
