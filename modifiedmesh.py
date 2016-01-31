@@ -126,7 +126,7 @@ class Mesh(SimpleTopology):
                                             node_b=routers[west_id],
                                             weight=1))
             link_count += 1
-                break
+            break
 
         for col in xrange(num_columns):
             for row in xrange(num_rows):
@@ -146,6 +146,6 @@ class Mesh(SimpleTopology):
                                             node_b=routers[north_id],
                                             weight=1))
             link_count += 1
-                break
+            break
         
         network.int_links = int_links
