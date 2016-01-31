@@ -112,7 +112,7 @@ class Mesh(SimpleTopology):
                                             node_a=routers[east_id],
                                             node_b=routers[west_id],
                                             weight=1))
-                break
+                    break
                 link_count += 1
 
         for col in xrange(num_columns):
@@ -128,7 +128,7 @@ class Mesh(SimpleTopology):
                                             node_a=routers[east_id],
                                             node_b=routers[west_id],
                                             weight=1))
-                break
+                    break
                 link_count += 1
 
         network.int_links = int_links
