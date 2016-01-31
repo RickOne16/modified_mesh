@@ -112,7 +112,7 @@ class Mesh(SimpleTopology):
             for col in xrange(num_columns):
                 if (link_count == 3):
                     link_count = 0
-                    east_id = None
+                    east_id = -1
                     west_id = (col + 1) + (row * num_columns)
                     int_links.append(IntLink(link_id=link_count,
                                             node_a=routers[east_id],
@@ -132,7 +132,7 @@ class Mesh(SimpleTopology):
             for row in xrange(num_rows):
                 if (link_count == 3):
                     link_count = 0
-                    south_id = None
+                    south_id = -1
                     north_id = col + (row * num_columns)
                     int_links.append(IntLink(link_id=link_count,
                                             node_a=routers[south_id],
