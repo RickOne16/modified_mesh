@@ -99,7 +99,7 @@ class Mesh(SimpleTopology):
         # Create the mesh links.  First row (east-west) links then column
         # (north-south) links
         int_links = []
-       for row in xrange(num_rows):
+        for row in xrange(num_rows):
             for col in xrange(num_columns):
                 if (col + 1 < num_columns):
                     east_id = col + (row * num_columns)
@@ -112,7 +112,7 @@ class Mesh(SimpleTopology):
                                             node_a=routers[east_id],
                                             node_b=routers[west_id],
                                             weight=1))
-                    break
+                   break
                 link_count += 1
 
         for col in xrange(num_columns):
@@ -121,14 +121,14 @@ class Mesh(SimpleTopology):
                     north_id = col + (row * num_columns)
                     south_id = col + ((row + 1) * num_columns)
 
-                   if (link_count == 3):
+                if (link_count == 3):
                     link_count = 0
                     south_id = None
                 int_links.append(IntLink(link_id=link_count,
                                             node_a=routers[north_id],
                                             node_b=routers[south_id],
                                             weight=1))
-                    break
+                   break
                 link_count += 1
 
         network.int_links = int_links
