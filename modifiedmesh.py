@@ -33,6 +33,15 @@ Created on Fri Jan 29 19:47:46 2016
 #
 # Authors: Brad Beckmann
 
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jan 31 15:29:01 2016
+
+@author: JMD1
+"""
+
+
+
 from m5.params import *
 from m5.objects import *
 
@@ -112,8 +121,8 @@ class Mesh(SimpleTopology):
                                             node_a=routers[east_id],
                                             node_b=routers[west_id],
                                             weight=1))
-                   break
-                link_count += 1
+            link_count += 1
+            break
 
         for col in xrange(num_columns):
             for row in xrange(num_rows):
@@ -128,8 +137,7 @@ class Mesh(SimpleTopology):
                                             node_a=routers[north_id],
                                             node_b=routers[south_id],
                                             weight=1))
-                   break
-                link_count += 1
+            link_count += 1
+            break
 
         network.int_links = int_links
-
