@@ -123,10 +123,10 @@ class Mesh(SimpleTopology):
 
                    if (link_count == 3):
                     link_count = 0
-                    east_id = None
+                    south_id = None
                 int_links.append(IntLink(link_id=link_count,
-                                            node_a=routers[east_id],
-                                            node_b=routers[west_id],
+                                            node_a=routers[north_id],
+                                            node_b=routers[south_id],
                                             weight=1))
                     break
                 link_count += 1
