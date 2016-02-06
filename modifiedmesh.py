@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Jan 29 19:47:46 2016
-
 @author: Mudit Sharma
 """
 
@@ -36,7 +35,6 @@ Created on Fri Jan 29 19:47:46 2016
 # -*- coding: utf-8 -*-
 """
 Created on Sun Jan 31 15:29:01 2016
-
 @author: JMD1
 """
 
@@ -118,7 +116,7 @@ class Mesh(SimpleTopology):
                                             node_a=routers[east_id],
                                             node_b=routers[west_id],
                                             weight=1))
-                    break
+                    
                 if (col + 1 < num_columns):
                     east_id = col + (row * num_columns)
                     west_id = (col + 1) + (row * num_columns)
@@ -126,6 +124,7 @@ class Mesh(SimpleTopology):
                                             node_a=routers[east_id],
                                             node_b=routers[west_id],
                                             weight=1))
+                                            
             link_count += 1
             
 
@@ -139,7 +138,7 @@ class Mesh(SimpleTopology):
                                             node_a=routers[south_id],
                                             node_b=routers[north_id],
                                             weight=1))
-                    break
+                    
                 if (col + 1 < num_columns):
                     north_id = col + (row * num_columns)
                     south_id = col + ((row + 1) * num_columns)
@@ -149,5 +148,43 @@ class Mesh(SimpleTopology):
                                             weight=1))
             link_count += 1
             
-        
+            for row in xrange(num_rows):
+                for col in xrange(num_columns):
+                  if( (row == 3 and col == 3) is true):
+                     horiz_id = row
+                     vert_id = col
+                     diag_id = 1
+                     int_links.append(IntLink(link_id=link_count,
+                                            node_a=routers[horiz_id],
+                                            node_b=routers[vert_id],
+                                            node_c=routers[diag_id],
+                                            weight=1))
+                  if((row == 3 and col == 6) is true):
+                      horiz_id = row
+                      vert_id = col
+                      diag_id = 2
+                      int_links.append(IntLink(link_id=link_count,
+                                            node_a=routers[horiz_id],
+                                            node_b=routers[vert_id],
+                                            node_c=routers[diag_id],
+                                            weight=1))
+                  if((row == 6 and col == 3) is true):
+                      horiz_id = row
+                      vert_id = col
+                      diag_id = 2
+                      int_links.append(IntLink(link_id=link_count,
+                                            node_a=routers[horiz_id],
+                                            node_b=routers[vert_id],
+                                            node_c=routers[diag_id],
+                                            weight=1))
+                  if((row == 6 and col == 6) is true):
+                      horiz_id = row
+                      vert_id = col
+                      diag_id = 1
+                      int_links.append(IntLink(link_id=link_count,
+                                            node_a=routers[horiz_id],
+                                            node_b=routers[vert_id],
+                                            node_c=routers[diag_id],
+                                            weight=1))
+                   #link code
         network.int_links = int_links
