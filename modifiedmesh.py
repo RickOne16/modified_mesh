@@ -149,7 +149,7 @@ class Mesh(SimpleTopology):
             
             for row in xrange(num_rows):
                 for col in xrange(num_columns):
-                  if( (row == 3 and col == 3) is true):
+                  if(row == 3 and col == 3):
                      horiz_id = row
                      vert_id = col
                      diag_id = 1
@@ -158,7 +158,7 @@ class Mesh(SimpleTopology):
                                             node_b=routers[vert_id],
                                             node_c=routers[diag_id],
                                             weight=1))
-                  if((row == 3 and col == 6) is true):
+                  if(row == 3 and col == 6):
                       horiz_id = row
                       vert_id = col
                       diag_id = 2
@@ -167,7 +167,7 @@ class Mesh(SimpleTopology):
                                             node_b=routers[vert_id],
                                             node_c=routers[diag_id],
                                             weight=1))
-                  if((row == 6 and col == 3) is true):
+                  if(row == 6 and col == 3):
                       horiz_id = row
                       vert_id = col
                       diag_id = 2
@@ -176,7 +176,7 @@ class Mesh(SimpleTopology):
                                             node_b=routers[vert_id],
                                             node_c=routers[diag_id],
                                             weight=1))
-                  if((row == 6 and col == 6) is true):
+                  if(row == 6 and col == 6):
                       horiz_id = row
                       vert_id = col
                       diag_id = 1
