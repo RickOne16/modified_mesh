@@ -33,12 +33,6 @@ Created on Fri Jan 29 19:47:46 2016
 # Authors: Brad Beckmann
 
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Jan 31 15:29:01 2016
-@author: JMD1
-"""
-
-
 
 from m5.params import *
 from m5.objects import *
@@ -151,7 +145,7 @@ class Mesh(SimpleTopology):
                     int_links.append(IntLink(link_id=link_count,
                                             node_a=routers[south_id],
                                             node_b=routers[north_id],
-                                            weight=1))
+                                            weight=2))
                 link_count += 1
             
         network.int_links = int_links
